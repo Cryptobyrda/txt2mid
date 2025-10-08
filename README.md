@@ -1,4 +1,4 @@
-# seq_to_midi - Text to midi tool
+# txt2mid - Text to midi tool
 
 A minimal Python tool that converts a **step-sequencer-style text sequence** into a **MIDI file**, ideal for quick idea generation, prototyping, or use with language models.
 
@@ -34,24 +34,24 @@ You can use either **conda** or **pip**.
 Below is the recommended setup using **conda** for isolation.
 
 ### 1. Create a new environment
-
-conda create -n seq2midi python=3.10 -y  
-conda activate seq2midi
-
+```
+conda create -n txt2mid python=3.10 -y  
+conda activate txt2mid
+```
 ### 2. Install dependencies
-
+```
 pip install midiutil
-
+```
 ### 3. Clone this repository
-
-git clone https://github.com/yourusername/seq_to_midi.git
-cd seq_to_midi
-
+```
+git clone https://github.com/DirtyBeastAfterTheToad/txt2mid.git
+cd txt2mid
+```
 ### 4. Testing
 
 You can verify that everything works by running this minimal test sequence:
 ```
-python seq_to_midi.py --sequence "[[\"C4\",\"-\",\"E4\",\"-\"],[\"G4\",\"-\",\"C5\",\"-\"]]" --output test.mid --bpm 100 --steps-per-bar 4
+python txt2mid.py --sequence "[[\"C4\",\"-\",\"E4\",\"-\"],[\"G4\",\"-\",\"C5\",\"-\"]]" --output test.mid --bpm 100 --steps-per-bar 4
 ```
 This will generate a `test.mid` file in the current directory.  
 Open it in any DAW (FL Studio, Ableton, Logic, etc.) to confirm playback.
@@ -61,15 +61,15 @@ Open it in any DAW (FL Studio, Ableton, Logic, etc.) to confirm playback.
 
 ### Example: Generating a Simple Melody
 ```
-python seq_to_midi.py --sequence "[[\"A#3\",\"-\",\"D#4\",\"-\"],[\"F4\",\"-\",\".\",\"G#3\"],[\"C#4\",\"-\",\"D#4\",\"-\"],[\"G#3\",\".\",\"A#3\",\"-\"]]" --output melody.mid --bpm 120 --steps-per-bar 4
+python txt2mid.py --sequence "[[\"A#3\",\"-\",\"D#4\",\"-\"],[\"F4\",\"-\",\".\",\"G#3\"],[\"C#4\",\"-\",\"D#4\",\"-\"],[\"G#3\",\".\",\"A#3\",\"-\"]]" --output melody.mid --bpm 120 --steps-per-bar 4
 ```
 ### Example: Block Chords
 ```
-python seq_to_midi.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output basic_chords.mid --bpm 100 --steps-per-bar 4 --velocity 100 
+python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output basic_chords.mid --bpm 100 --steps-per-bar 4 --velocity 100 
 ```
 ### Example: Complex melody using every features 
 ```
-python seq_to_midi.py --sequence "[[[\"A#3\",\"D#4\",\"F4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],[\"A#3\",\"-\",\"C#4\",\".\",\"D#4\",\"-\",\"F4\",\".\"],[[\"G#3\",\"C#4\",\"D#4\"],\"-\",\"-\",\"-\",[\"F3\",\"A#3\",\"C#4\"],\"-\",\"-\",\"-\"],[\"G#3\",\"-\",\"-\",\".\",\"A#3\",\"C#4\",\"-\",\"D#4\"],[[\"B2\",\"F#3\",\"D#4\"],\"-\",\"A#3\",\"C#4\",\"-\",\"D#4\",\"-\",\".\"],[\".\",\".\",\"A#2\",\"-\",\"-\",\".\",\"G#2\",\"-\"],[\"A#3\",\"C#4\",\"D#4\",\"F4\",\"G#4\",\"F4\",\"D#4\",\"C#4\"],[[\"A#3\",\"D#4\",\"F4\",\"A#4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"]]" --output complex_demo.mid --bpm 128 --steps-per-bar 8 --velocity 108 --channel 0
+python txt2mid.py --sequence "[[[\"A#3\",\"D#4\",\"F4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],[\"A#3\",\"-\",\"C#4\",\".\",\"D#4\",\"-\",\"F4\",\".\"],[[\"G#3\",\"C#4\",\"D#4\"],\"-\",\"-\",\"-\",[\"F3\",\"A#3\",\"C#4\"],\"-\",\"-\",\"-\"],[\"G#3\",\"-\",\"-\",\".\",\"A#3\",\"C#4\",\"-\",\"D#4\"],[[\"B2\",\"F#3\",\"D#4\"],\"-\",\"A#3\",\"C#4\",\"-\",\"D#4\",\"-\",\".\"],[\".\",\".\",\"A#2\",\"-\",\"-\",\".\",\"G#2\",\"-\"],[\"A#3\",\"C#4\",\"D#4\",\"F4\",\"G#4\",\"F4\",\"D#4\",\"C#4\"],[[\"A#3\",\"D#4\",\"F4\",\"A#4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"]]" --output complex_demo.mid --bpm 128 --steps-per-bar 8 --velocity 108 --channel 0
 ```
 Each inner list represents a **bar**, and each bar has a number of **steps** (`--steps-per-bar`).  
 A step can contain:
@@ -88,8 +88,8 @@ You can use the following prompt to instruct any LLM (e.g., ChatGPT, Claude, Gem
 You are a music assistant that generates step-sequencer MIDI patterns.
 
 Your task:
-- Produce a single shell command that can be directly pasted into a terminal and will run the tool `seq_to_midi.py`.
-- The command must include the full `python seq_to_midi.py --sequence ...` structure.
+- Produce a single shell command that can be directly pasted into a terminal and will run the tool `txt2mid.py`.
+- The command must include the full `python txt2mid.py --sequence ...` structure.
 - Escape all double quotes (`"`) as `\"` so it works in a standard bash or zsh shell.
 - Use valid JSON for the `--sequence` argument:
   • The sequence must be an array of 8 bars.
@@ -102,11 +102,11 @@ Your task:
 
 Expected output format:
 
-python seq_to_midi.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
+python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
 ```
 Then run it directly what the LLM gives you, for instance :
 ```
-python seq_to_midi.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
+python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
 ```
 ---
 ## Enjoy
